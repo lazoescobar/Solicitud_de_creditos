@@ -1,0 +1,28 @@
+
+		ENUNCIADO
+
+Crear una aplicación de consola en C# que permita registrar 3 solicitudes de credito de forma seguida y que al finalizar me muestre los resultados de las solicitudes.
+
+Los datos a ingresar son:
+
+Nombre, apellido, sueldo, tipo de cliente, monto a solicitar y el numero de cuotas.
+
+Importante:
+
+Existen 2 tipos de clientes. Normal y Premiun.
+
+Reglas:
+
+La cantidad de cuotas debe ser de 6 hasta 24 como maximo, si el clientes es premiun puede optar hasta 36 coutas.
+
+El monto a solicitar no debe ser mayor al 150% del sueldo del solicitante.
+
+La tasa de interes es de 10%, si el clientes es premiun se aplica una tasa del 5%.
+
+Información a mostrar:
+
+Nombre, apellido y tipo de cliente.
+
+Si la solicitud fua aprobada o reprobada.
+
+Mostrar el numero de cuotas, tasa de interes y el valor de la cuota.
