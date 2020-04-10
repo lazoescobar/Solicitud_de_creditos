@@ -1,0 +1,7 @@
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\bin\Debug\Solicitud_de_creditos.exe.config
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\bin\Debug\Solicitud_de_creditos.exe
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\bin\Debug\Solicitud_de_creditos.pdb
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\obj\Debug\Solicitud_de_creditos.csprojAssemblyReference.cache
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\obj\Debug\Solicitud_de_creditos.csproj.CoreCompileInputs.cache
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\obj\Debug\Solicitud_de_creditos.exe
+C:\Users\Lazo\source\repos\Solicitud_de_creditos\Solicitud_de_creditos\obj\Debug\Solicitud_de_creditos.pdb
