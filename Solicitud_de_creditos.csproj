@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Credito.cs" />
+    <Compile Include="CreditoNormal.cs" />
+    <Compile Include="CreditoPremiun.cs" />
     <Compile Include="Sueldo.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Menu.cs" />

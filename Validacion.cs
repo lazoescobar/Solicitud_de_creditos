@@ -40,7 +40,7 @@ namespace Solicitud_de_creditos
             return resultado;
         }
 
-        public bool EsSueldo ( String sueldo ){
+        public bool EsMontoDeDinero ( String sueldo ){
 
             bool resultado = false;
 
@@ -69,6 +69,20 @@ namespace Solicitud_de_creditos
             return resultado;
         }
 
+        public bool EsCuotas( String cuotas ) {
+
+            bool resultado = false;
+
+            Regex expresion = new Regex( "^[0-9]*$");
+
+            if ( expresion.IsMatch( cuotas ) == true)
+            {
+
+                resultado = true;
+            }
+
+            return resultado;
+        }
 
     }
 }

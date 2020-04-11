@@ -12,29 +12,68 @@ namespace Solicitud_de_creditos
         {
 
 
+            Credito [] solicitudCreditos = new Credito[3];
+
             Menu men = new Menu();
 
-            String nombre = men.solicitarNombre();
-            String apellido = men.solicitarApellido();
-            String monto = men.solicitarSueldo();
-            
+            int numeroDeSolicitud = 1;
 
-            Sueldo suel = new Sueldo(monto);
+            for (int i = 0; i <= solicitudCreditos.Length-1; i++) {
 
-            Cliente clie = new Cliente(nombre, apellido, suel);
+                Console.WriteLine("NUMERO DE SOLICITUD : " + numeroDeSolicitud);
+
+                numeroDeSolicitud ++; 
+
+                String nombre = men.solicitarNombre();
+                String apellido = men.solicitarApellido();
+                String monto = men.solicitarSueldo();
+
+                Sueldo suel = new Sueldo(monto);
+
+                Cliente clie = new Cliente(nombre, apellido, suel);
+
+                String tipo = men.solicitartipoCliente(clie);
+
+                clie.setTipo(tipo);
+
+                int montoSolicitado = men.solicitarMontoParaPrestamo();
+
+                int cuotas = men.solicitarNumeroDeCuotas();
+
+                CreditoNormal cre_norma = new CreditoNormal(clie, cuotas, montoSolicitado);
+                CreditoPremiun cre_prem = new CreditoPremiun(clie, cuotas, montoSolicitado);
+
+                if(clie.getTipo() == "NORMAL")
+                {
+                    solicitudCreditos[i] = cre_norma;
+                }
+                else if(clie.getTipo() == "PREMIUN")
+                {
+                    solicitudCreditos[i] = cre_prem;
+                }
+
+                Console.Clear();
+            }
 
 
-            String tipo = men.solicitartipoCliente(clie);
-
-            clie.setTipo(tipo);
 
 
+            numeroDeSolicitud = 1;
 
+            //MOSTRA TODAS LAS SOLICITUDES
+            for (int j = 0; j <= solicitudCreditos.Length - 1; j++) {
 
-            Console.Out.WriteLine("Nombre cliente : " + clie.getNombre() + "\n" );
-            Console.Out.WriteLine("Apellido cliente : " + clie.getApellido() + "\n" );
-            Console.Out.WriteLine("Sueldo $ : " + clie.getSueldo().getMonto() + "\n" );
-            Console.Out.WriteLine("tipo cliente : " + clie.getTipo() + "\n");
+                Console.WriteLine(" SOLICITUD  NUMERO : " + numeroDeSolicitud);
+                Console.WriteLine();
+
+                numeroDeSolicitud++;
+
+                Console.WriteLine(" CLIENTE " + "  \n " + "Nombre : " + solicitudCreditos[j].getCliente().getNombre() );
+                Console.WriteLine("Apellido :" + solicitudCreditos[j].getCliente().getApellido() );
+                Console.WriteLine("Tipo :" + solicitudCreditos[j].getCliente().getTipo() );
+
+                
+            }
 
 
             Console.ReadKey();
