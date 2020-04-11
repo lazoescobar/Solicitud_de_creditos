@@ -8,16 +8,15 @@ namespace Solicitud_de_creditos
 {
     class Credito
     {
-        protected Cliente Clien;
+        Cliente Clie;
         protected int Cuotas;
         protected int TazaDeInteres;
         protected int Montosolicitado;
         protected bool aprobado = false;
 
-        public Credito(Cliente cliente, int cuotas, int monto)
+        public Credito( int cuotas, int monto)
         {
 
-            this.Clien = cliente;
             this.Cuotas = cuotas;
             this.Montosolicitado = monto;
         }
@@ -35,11 +34,6 @@ namespace Solicitud_de_creditos
         }
 
 
-        public Cliente getCliente()
-        {
-
-            return this.Clien;
-        }
 
         public void setAprobado(bool boleano)
         {
@@ -51,24 +45,21 @@ namespace Solicitud_de_creditos
             return this.aprobado;
         }
 
-
-        protected int verificarPorcentajeDeSueldo() {
-
-            String obtenerMonto = Clien.getSueldo().getMonto();
-
-            int montoSueldo = Convert.ToInt32(obtenerMonto);
-
-            montoSueldo += (montoSueldo / 2) + montoSueldo; //determina el 150 % del sueldo
-
-            return montoSueldo;
-
-        }
-
-        public void determinarTazaDeInteres()
+        public virtual void mostrarCredito()
         {
-            
+            Console.WriteLine("YO SOY CREDITO SOLO");
         }
 
+        public virtual Cliente getCliente()
+        {
+            return this.Clie;
+        }
+
+        public virtual int obtenerEl150PorcientoDelSueldo()
+        {
+            int sueldo = 0;
+
+            return sueldo; 
+        }
     }
-    
 }

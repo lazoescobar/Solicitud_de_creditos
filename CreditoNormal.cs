@@ -8,22 +8,30 @@ namespace Solicitud_de_creditos
 {
     class CreditoNormal : Credito
     {
-        public CreditoNormal(Cliente cliente, int cuotas, int monto) : base(cliente, cuotas, monto)
+        private ClienteNormal clieNorma;
+
+        public CreditoNormal(ClienteNormal clienteNormal, int cuotas, int monto) : base(cuotas, monto)
         {
-            
+            this.clieNorma = clienteNormal;
         }
 
-        public virtual void determinarTazaDeInteres()
+        public override void mostrarCredito()
         {
-            int sueldoenPorcentaje = this.verificarPorcentajeDeSueldo(); // 150 %
-
-            if(sueldoenPorcentaje <= this.Montosolicitado){
-
-                this.TazaDeInteres = Montosolicitado / 10; //determina el 10 % de interes
-            }
+            Console.WriteLine("YO SOY CREDITO NORMAL");
         }
 
-      
+        public override Cliente getCliente()
+        {
+            return this.clieNorma;
+        }
+
+        public override int obtenerEl150PorcientoDelSueldo()
+        {
+            int sueldo = Convert.ToInt32( clieNorma.getSueldo().getMonto() ) ;
+
+            int sueldoEn150porciento = (sueldo / 2) + sueldo;
+
+            return sueldoEn150porciento;
+        }
     }
 }
-

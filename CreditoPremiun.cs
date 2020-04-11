@@ -8,19 +8,21 @@ namespace Solicitud_de_creditos
 {
     class CreditoPremiun : Credito
     {
-        public CreditoPremiun(Cliente cliente, int cuotas, int monto) : base(cliente, cuotas, monto) { }
+        private ClientePremiun cliePrem;
 
-        public virtual void determinarTazaDeInteres()
+        public CreditoPremiun(ClientePremiun clientePremiun, int cuotas, int monto) : base(cuotas, monto)
         {
-            int sueldoenPorcentaje = this.verificarPorcentajeDeSueldo(); // 150 %
-
-            if (sueldoenPorcentaje <= this.Montosolicitado)
-            {
-
-                this.TazaDeInteres = (Montosolicitado / 10) / 2 ; //determina el 5 %  de interes
-            }
+            this.cliePrem = clientePremiun;
         }
 
+        public override void mostrarCredito()
+        {
+            Console.WriteLine("YO SOY CREDITO PREMIUN");
+        }
+
+        public override Cliente getCliente()
+        {
+            return this.cliePrem;
+        }
     }
 }
-

@@ -4,62 +4,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Solicitud_de_creditos {
+namespace Solicitud_de_creditos
+{
 
-    class Cliente {
+    class Cliente
+    {
 
-        private String Nombre;
-        private String Apellido;
-        private Sueldo Suel;
-        private String Tipo;
+        protected String Nombre;
+        protected String Apellido;
+        protected Sueldo Suel;
+        protected String Tipo;
+
 
         public Cliente() { }
 
-        public Cliente(String nombre, String apellido, Sueldo sueldo) {
+        public Cliente(String nombre, String apellido, Sueldo sueldo)
+        {
 
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Suel = sueldo;
         }
 
-        public void setNombre( String nombre) {
+        public void setNombre(String nombre)
+        {
 
             this.Nombre = nombre;
         }
 
-        public String getNombre() {
+        public String getNombre()
+        {
 
             return this.Nombre;
         }
 
-        public void setApellido( String apellido ) {
+        public void setApellido(String apellido)
+        {
 
             this.Apellido = apellido;
         }
 
-        public String getApellido() {
+        public String getApellido()
+        {
 
             return this.Apellido;
         }
 
-        public void setSueldo(Sueldo sueldo) {
+        public void setSueldo(Sueldo sueldo)
+        {
 
             this.Suel = sueldo;
         }
 
-        public Sueldo getSueldo() {
+        public Sueldo getSueldo()
+        {
 
             return this.Suel;
         }
-
-        public void setTipo( String tipo ) {
+        public  void setTipo(String tipo)
+        {
 
             this.Tipo = tipo;
+
         }
 
-        public String getTipo() {
-
+        public  String getTipo()
+        {
             return this.Tipo;
         }
+
+        public virtual void mostrar()
+        {
+            
+        }
+
     }
 }
