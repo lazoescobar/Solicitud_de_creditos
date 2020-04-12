@@ -8,22 +8,17 @@ namespace Solicitud_de_creditos
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
 
-
-            //Cliente [] clientes = new Cliente[2];
-
-            Credito[] solicitudCreditos = new Credito[2];
+            Credito[] solicitudCreditos = new Credito[1];
 
             Menu men = new Menu();
 
             int numeroDeSolicitud = 1;
 
-            for (int i = 0; i <= solicitudCreditos.Length - 1; i++)
-            {
+            for (int i = 0; i <= solicitudCreditos.Length - 1; i++) {
 
-                Console.WriteLine("NUMERO DE SOLICITUD : " + numeroDeSolicitud);
+                Console.WriteLine("NUMERO DE SOLICITUD : " + numeroDeSolicitud + "\n\n");
 
                 numeroDeSolicitud++;
 
@@ -40,8 +35,8 @@ namespace Solicitud_de_creditos
 
                 int cuotas = men.solicitarNumeroDeCuotas();
 
-                if(tipo == "NORMAL")
-                {
+                if(tipo == "NORMAL") {
+
                     ClienteNormal clieNorma = new ClienteNormal(nombre, apellido, suel);
                     clieNorma.setTipo(tipo);
 
@@ -50,8 +45,8 @@ namespace Solicitud_de_creditos
                     solicitudCreditos[i] = credNorma;
                 }
 
-                else if(tipo == "PREMIUN")
-                {
+                else if(tipo == "PREMIUN") {
+
                     ClientePremiun cliePremi = new ClientePremiun(nombre, apellido, suel);
                     cliePremi.setTipo(tipo);
 
@@ -60,14 +55,21 @@ namespace Solicitud_de_creditos
                     solicitudCreditos[i] = credPremi;
                 }
                 
-
                 Console.Clear();
             }
 
+
             numeroDeSolicitud = 1;
 
-            for (int j = 0; j <= solicitudCreditos.Length-1; j++)
-            {
+            Console.Write("REGLAS : " + "\n" +
+                          " * La cantidad de cuotas debe ser de 6 hasta 24 como maximo, si el clientes es premiun puede optar hasta 36 coutas." + "\n" +
+                          " * El monto a solicitar no debe ser mayor al 150% del sueldo del solicitante. " + "\n" +
+                          " * La tasa de interes es de 10%, si el clientes es premiun se aplica una tasa del 5%." + "\n\n");
+
+            Console.WriteLine("-----------CLIENTES----------" + "\n\n");
+
+
+            for (int j = 0; j <= solicitudCreditos.Length-1; j++) {
 
                 Console.WriteLine("SOLICITUD : " + numeroDeSolicitud);
 
@@ -77,7 +79,7 @@ namespace Solicitud_de_creditos
                 Console.WriteLine("APELLIDO : " + solicitudCreditos[j].getCliente().getApellido() );
                 Console.WriteLine("TIPO : " + solicitudCreditos[j].getCliente().getTipo() );
 
-                solicitudCreditos[j].mostrarCredito();
+                solicitudCreditos[j].determinarSolicitud();
 
                 Console.WriteLine();
                 Console.WriteLine();

@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace Solicitud_de_creditos
 {
-    class ClientePremiun : Cliente
-    {
-        public ClientePremiun(string nombre, string apellido, Sueldo sueldo) : base(nombre, apellido, sueldo)
-        {
-        }
+    class ClientePremiun : Cliente {
 
-        public override void mostrar()
-        {
+        public ClientePremiun(string nombre, string apellido, Sueldo sueldo) : base(nombre, apellido, sueldo) { }
 
-            Console.WriteLine("YO SOY CLIENTE PREMIUN");
-        }
-
-        
     }
 }

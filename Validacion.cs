@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Solicitud_de_creditos
 {
-    class Validacion
-    {
+    class Validacion {
 
-        public bool EsNombre ( String nombre ){
+        public bool EsNombre ( String nombre ) {
 
             bool resultado = false;
 
@@ -60,8 +59,7 @@ namespace Solicitud_de_creditos
 
             Regex expresion = new Regex( "^[1-2]$" );
 
-            if (expresion.IsMatch( opcion ) == true)
-            {
+            if (expresion.IsMatch( opcion ) == true) {
 
                 resultado = true;
             }

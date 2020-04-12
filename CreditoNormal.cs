@@ -6,32 +6,76 @@ using System.Threading.Tasks;
 
 namespace Solicitud_de_creditos
 {
-    class CreditoNormal : Credito
-    {
-        private ClienteNormal clieNorma;
+    class CreditoNormal : Credito {
 
-        public CreditoNormal(ClienteNormal clienteNormal, int cuotas, int monto) : base(cuotas, monto)
-        {
+        private ClienteNormal clieNorma;
+        private readonly int TazaInteres = 10; // hace referencia a % 
+
+        public CreditoNormal(ClienteNormal clienteNormal, int cuotas, int monto) : base(cuotas, monto) {
+
             this.clieNorma = clienteNormal;
         }
 
-        public override void mostrarCredito()
-        {
-            Console.WriteLine("YO SOY CREDITO NORMAL");
-        }
+        public override Cliente getCliente() {
 
-        public override Cliente getCliente()
-        {
             return this.clieNorma;
         }
 
-        public override int obtenerEl150PorcientoDelSueldo()
-        {
+        public override int obtenerEl150PorcientoDelSueldo() {
+
             int sueldo = Convert.ToInt32( clieNorma.getSueldo().getMonto() ) ;
 
             int sueldoEn150porciento = (sueldo / 2) + sueldo;
 
             return sueldoEn150porciento;
         }
+
+
+        public override void determinarSolicitud() {
+
+            String mensajeDeApruebo = "";
+
+            int valorCuota = 0;
+
+            int sueldoEn150porciento = this.obtenerEl150PorcientoDelSueldo();
+
+            this.Interes = (TazaInteres * this.Montosolicitado) / 100; //se obtiene el 5 % de interes al monto solicitado
+
+            if ( this.Montosolicitado <= sueldoEn150porciento ) {
+
+                if ( this.Cuotas >= 6 && this.Cuotas <= 24 ) {
+
+                    Montosolicitado += Interes;
+
+                    this.aprobado = true;
+                    mensajeDeApruebo = "APROBADO";
+
+                    valorCuota += this.obtenerValorDeCuota(Montosolicitado);
+
+                    this.mostarDetalleDeSolicitud(mensajeDeApruebo, Cuotas, this.TazaInteres, Interes, valorCuota);
+                }
+                else {
+
+                    this.aprobado = false;
+                    mensajeDeApruebo = "REPROBADO";
+
+                    Console.WriteLine("SU CREDIDO FUE : " + mensajeDeApruebo);
+
+                }
+            }
+            else {
+
+                //Montosolicitado += Interes;
+
+                this.aprobado = false;
+                mensajeDeApruebo = "REPROBADO";
+
+                Console.WriteLine("SU CREDIDO FUE : " + mensajeDeApruebo);
+
+            }
+       
+        }
+
     }
+
 }

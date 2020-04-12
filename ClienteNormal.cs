@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace Solicitud_de_creditos
 {
-    class ClienteNormal : Cliente
-    {
-        public ClienteNormal(string nombre, string apellido, Sueldo sueldo) : base(nombre, apellido, sueldo)
-        {
-        }
-        public override void mostrar()
-        {
+    class ClienteNormal : Cliente {
+        
+        public ClienteNormal(string nombre, string apellido, Sueldo sueldo) : base(nombre, apellido, sueldo) { }
 
-            Console.WriteLine("YO SOY CLIENTE NORMAL");
-        }
     }
 }

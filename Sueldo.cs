@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Solicitud_de_creditos
 {
-    class Sueldo
-    {
+    class Sueldo {
+
         private String Monto;
 
         public Sueldo() { }
@@ -26,7 +26,7 @@ namespace Solicitud_de_creditos
 
             return this.Monto;
         }
-
-        
+  
     }
+
 }

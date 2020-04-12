@@ -10,8 +10,7 @@ namespace Solicitud_de_creditos
     {
         private Validacion vali;
 
-        public string solicitarNombre()
-        {
+        public string solicitarNombre() {
 
             vali = new Validacion();
 
@@ -20,27 +19,29 @@ namespace Solicitud_de_creditos
             do
             {
 
-                Console.WriteLine("Ingrese un nombre Porfavor : " + "\n");
+                Console.Write("Ingrese un nombre Porfavor : ");
+                
+
+                //Console.WriteLine("Ingrese un nombre Porfavor : " + "\n");
 
                 nombre = Console.ReadLine();
 
-                if (vali.EsNombre(nombre) == false)
-                {
+                if ( vali.EsNombre( nombre ) == false ) {
 
                     Console.Clear();
                     Console.WriteLine("Error...... nombre invalido " + "\n");
                 }
 
-            } while (vali.EsNombre(nombre) == false);
+            } while ( vali.EsNombre( nombre ) == false );
 
             Console.WriteLine();
 
-            return nombre;
+            return nombre.ToUpper();
         }
 
 
-        public string solicitarApellido()
-        {
+        public string solicitarApellido() {
+
             vali = new Validacion();
 
             String apellido;
@@ -48,12 +49,11 @@ namespace Solicitud_de_creditos
             do
             {
 
-                Console.WriteLine("Ingrese un apellido : " + "\n");
+                Console.Write("Ingrese un apellido : ");
 
                 apellido = Console.ReadLine();
 
-                if (vali.EsNombre(apellido) == false)
-                {
+                if ( vali.EsNombre( apellido ) == false ) {
 
                     Console.Clear();
                     Console.WriteLine("Error...... apellido invalido " + "\n");
@@ -63,11 +63,10 @@ namespace Solicitud_de_creditos
 
             Console.WriteLine();
 
-            return apellido;
+            return apellido.ToUpper();
         }
 
-        public String solicitarSueldo()
-        {
+        public String solicitarSueldo() {
 
             vali = new Validacion();
 
@@ -76,26 +75,24 @@ namespace Solicitud_de_creditos
             do
             {
 
-                Console.WriteLine("Ingrese sueldo del cliente : " + "\n");
+                Console.Write("Ingrese sueldo del cliente :    " + "$ " );
 
                 sueldo = Console.ReadLine();
 
-                if (vali.EsMontoDeDinero(sueldo) == false)
-                {
+                if ( vali.EsMontoDeDinero( sueldo ) == false ) {
 
                     Console.Clear();
                     Console.WriteLine("Error...... sueldo invalido " + "\n");
                 }
 
-            } while (vali.EsMontoDeDinero(sueldo) == false);
+            } while ( vali.EsMontoDeDinero( sueldo ) == false );
 
             Console.WriteLine();
 
             return sueldo;
         }
 
-        public String solicitartipoCliente(String nombre, String apellido)
-        {
+        public String solicitartipoCliente(String nombre, String apellido) {
 
             vali = new Validacion();
 
@@ -114,44 +111,39 @@ namespace Solicitud_de_creditos
 
                 Opcion = Console.ReadLine();
 
-                if (vali.EsOpcion(Opcion) == false)
-                {
+                if ( vali.EsOpcion( Opcion ) == false ) {
 
                     Console.Clear();
 
                     Console.WriteLine("Error......Opcion invalida " + "\n");
                 }
 
-                else
-                {
+                else {
+
                     opcRespondida = Convert.ToInt32(Opcion);
 
-                    if (opcRespondida == 1)
-                    {
+                    if ( opcRespondida == 1 ) {
 
                         Opcion = "NORMAL";
                         break;
                     }
 
-                    else
-                    {
+                    else{
+
                         Opcion = "PREMIUN";
                         break;
                     }
 
                 }
 
-            } while (vali.EsOpcion(Opcion) == false);
+            } while ( vali.EsOpcion( Opcion ) == false );
 
             Console.WriteLine();
 
-
             return Opcion;
-
         }
 
-        public int solicitarMontoParaPrestamo()
-        {
+        public int solicitarMontoParaPrestamo() {
 
             vali = new Validacion();
 
@@ -162,19 +154,18 @@ namespace Solicitud_de_creditos
             do
             {
 
-                Console.WriteLine(" ingrese monto de dinero para la soliciud : ");
+                Console.Write(" ingrese monto de dinero para la soliciud :    " + "$ ");
 
                 montoSolicitado = Console.ReadLine();
 
-                if (vali.EsMontoDeDinero(montoSolicitado) == false)
-                {
+                if ( vali.EsMontoDeDinero(montoSolicitado) == false) {
 
                     Console.Clear();
 
                     Console.WriteLine("Error...... formato monto invalido " + "\n");
                 }
 
-            } while (vali.EsMontoDeDinero(montoSolicitado) == false);
+            } while ( vali.EsMontoDeDinero( montoSolicitado ) == false );
 
             Console.WriteLine();
 
@@ -184,8 +175,7 @@ namespace Solicitud_de_creditos
 
         }
 
-        public int solicitarNumeroDeCuotas()
-        {
+        public int solicitarNumeroDeCuotas() {
 
             vali = new Validacion();
 
@@ -195,12 +185,12 @@ namespace Solicitud_de_creditos
 
             do
             {
-                Console.WriteLine("ingrese cantidad de cuotas : ");
+                Console.Write("ingrese cantidad de cuotas : ");
 
                 cuotas = Console.ReadLine();
 
 
-                if (vali.EsCuotas(cuotas) == false)
+                if ( vali.EsCuotas( cuotas ) == false )
                 {
 
                     Console.Clear();
@@ -213,7 +203,7 @@ namespace Solicitud_de_creditos
 
                 cantidasCuotas = Convert.ToInt32(cuotas);
 
-                if (cantidasCuotas <= 0)
+                if ( cantidasCuotas <= 0 )
                 {
 
                     Console.Clear();
@@ -221,7 +211,7 @@ namespace Solicitud_de_creditos
                     Console.WriteLine("Error...... numero de cuotas no puede ser menor o igual a 0");
 
                 }
-                else if (cantidasCuotas > 52)
+                else if ( cantidasCuotas > 48 )
                 {
 
                     Console.Clear();
@@ -229,9 +219,11 @@ namespace Solicitud_de_creditos
                     Console.WriteLine("Error... numero de cuotas excede cualquier tipo de credito...(Maximo 48)");
                 }
 
-            } while (vali.EsCuotas(cuotas) == false || cantidasCuotas <= 0 || cantidasCuotas > 52);
+            } while ( vali.EsCuotas( cuotas ) == false || cantidasCuotas <= 0 || cantidasCuotas > 48 );
 
             return cantidasCuotas;
         }
+
     }
+
 }
