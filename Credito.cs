@@ -14,7 +14,7 @@ namespace Solicitud_de_creditos
         protected int Montosolicitado;
         protected bool aprobado;
 
-        public Credito( int cuotas, int monto) {
+        public Credito(int cuotas, int monto) {
 
             this.Cuotas = cuotas;
             this.Montosolicitado = monto;
@@ -49,7 +49,7 @@ namespace Solicitud_de_creditos
 
             int sueldo = 0;
 
-            return sueldo; 
+            return sueldo;
         }
 
         public virtual void determinarSolicitud() { }
@@ -62,14 +62,81 @@ namespace Solicitud_de_creditos
             return valorCuota;
         }
 
-        protected void mostarDetalleDeSolicitud(String mensaje, int cuotas, int tazaInteres ,int interes, int valorCuota) {
+        protected void mostarDetalleDeSolicitud(String mensaje, int cuotas, int tazaInteres, String interes, String valorCuota) {
 
             Console.WriteLine("SU CREDIDO FUE : " + mensaje);
             Console.WriteLine("LAS CANTIDAD DE CUOTAS SON :" + cuotas);
-            Console.WriteLine("LA TAZA DE INTERES DEL " + tazaInteres + "% "+  "QUE SE APLICA A ESTE CREDITO ES DE : " + interes);
+            Console.WriteLine("LA TAZA DE INTERES DEL " + tazaInteres + "% "+  "QUE SE APLICA A ESTE CREDITO ES DE :   " + "$"+  interes);
             Console.WriteLine("EL VALOR DE CADA CUOTAS ES DE : " + "    $" + valorCuota);
 
-        }   
+        }
+
+        public String colocarSeparadorDeMiles(int monto) {
+
+            String saldoSinFormato = monto.ToString();
+            String saldoEnFormatoChileno = "";
+
+            int cont = 0;
+
+            int subIndice = 1;
+
+            for (int i = saldoSinFormato.Length - 1; i >= 0; i--) {
+
+                saldoEnFormatoChileno += saldoSinFormato.Substring(i, subIndice);
+
+                cont++;
+
+                if ( cont == 3 ) {
+
+                    saldoEnFormatoChileno += ".";
+
+                    cont = 0;
+                }
+            }
+
+            String saldoFormateado = "";
+
+            for (int j = saldoEnFormatoChileno.Length - 1; j >= 0; j--) {
+
+                saldoFormateado += saldoEnFormatoChileno.Substring(j, subIndice);
+            }
+
+            return saldoEnFormatoChileno = saldoFormateado;
+        }
+
+
+        public String ComprobarQueSaldoNoEmpiezeConPunto(int monto) {
+
+            String saldoFormatoChileno = this.colocarSeparadorDeMiles(monto);
+
+            String saldoVerificado = "";
+
+            int subIndice = 1;
+
+            for (int i = 0; i <= saldoFormatoChileno.Length - 1; i++) {
+
+                if ( saldoFormatoChileno.Substring(0, 1).Equals(".") ) {
+
+                    saldoVerificado = saldoFormatoChileno.Substring(subIndice, saldoFormatoChileno.Length - 1);
+                    continue;
+                }
+
+                else {
+
+                    saldoVerificado += saldoFormatoChileno.Substring(i, subIndice);
+                }
+
+            }
+
+            return saldoVerificado;
+        }
+
+        protected String ConvertirAPesosChilenos(int monto) {
+
+            String SaldoConvertido = this.ComprobarQueSaldoNoEmpiezeConPunto(monto);
+
+            return SaldoConvertido;
+        }
 
     }
 

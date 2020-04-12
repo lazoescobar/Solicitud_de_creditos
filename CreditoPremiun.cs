@@ -23,9 +23,9 @@ namespace Solicitud_de_creditos
 
         public override int obtenerEl150PorcientoDelSueldo() {
 
-            int sueldo = Convert.ToInt32(cliePrem.getSueldo().getMonto());
+            int montoSueldo = cliePrem.getSueldo().getMonto();
 
-            int sueldoEn150porciento = (sueldo / 2) + sueldo;
+            int sueldoEn150porciento = (150 * montoSueldo) / 100 ;
 
             return sueldoEn150porciento;
         }
@@ -51,7 +51,7 @@ namespace Solicitud_de_creditos
 
                     valorCuota +=  this.obtenerValorDeCuota(Montosolicitado);
 
-                    this.mostarDetalleDeSolicitud(mensajeDeApruebo, Cuotas, this.TazaInteres, Interes, valorCuota);
+                    this.mostarDetalleDeSolicitud(mensajeDeApruebo, Cuotas, this.TazaInteres, this.ConvertirAPesosChilenos(Interes), this.ConvertirAPesosChilenos(valorCuota));
                 }
                 else {
 

@@ -10,7 +10,7 @@ namespace Solicitud_de_creditos
     {
         static void Main(string[] args) {
 
-            Credito[] solicitudCreditos = new Credito[1];
+            Credito[] solicitudCreditos = new Credito[3];
 
             Menu men = new Menu();
 
@@ -24,10 +24,10 @@ namespace Solicitud_de_creditos
 
                 String nombre = men.solicitarNombre();
                 String apellido = men.solicitarApellido();
-                String monto = men.solicitarSueldo();
+                int montoSueldo = men.solicitarSueldo();
 
                 Sueldo suel = new Sueldo();
-                suel.setMonto(monto);
+                suel.setMonto(montoSueldo);
 
                 String tipo = men.solicitartipoCliente(nombre, apellido);
 

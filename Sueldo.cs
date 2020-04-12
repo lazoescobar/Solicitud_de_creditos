@@ -8,21 +8,21 @@ namespace Solicitud_de_creditos
 {
     class Sueldo {
 
-        private String Monto;
+        private int Monto;
 
         public Sueldo() { }
 
-        public Sueldo ( string monto ) {
+        public Sueldo ( int monto ) {
 
             this.Monto = monto;
         }
 
-        public void setMonto( String monto ) {
+        public void setMonto( int monto ) {
 
             this.Monto = monto;
         }
 
-        public String getMonto() {
+        public int getMonto() {
 
             return this.Monto;
         }

@@ -20,9 +20,7 @@ namespace Solicitud_de_creditos
             {
 
                 Console.Write("Ingrese un nombre Porfavor : ");
-                
-
-                //Console.WriteLine("Ingrese un nombre Porfavor : " + "\n");
+ 
 
                 nombre = Console.ReadLine();
 
@@ -66,11 +64,13 @@ namespace Solicitud_de_creditos
             return apellido.ToUpper();
         }
 
-        public String solicitarSueldo() {
+        public int solicitarSueldo() {
 
             vali = new Validacion();
 
             String sueldo;
+
+            int sueldoObtenido = 0;
 
             do
             {
@@ -85,11 +85,21 @@ namespace Solicitud_de_creditos
                     Console.WriteLine("Error...... sueldo invalido " + "\n");
                 }
 
-            } while ( vali.EsMontoDeDinero( sueldo ) == false );
+                sueldoObtenido = Convert.ToInt32(sueldo);
+
+                if(sueldoObtenido < 320500) {
+
+                    Console.Clear();
+
+                    Console.WriteLine("Error.... no se aceptan sueldos menores al minimo (sueldo minimo 320.500)");
+
+                }
+
+            } while ( vali.EsMontoDeDinero( sueldo ) == false || sueldoObtenido < 320500);
 
             Console.WriteLine();
 
-            return sueldo;
+            return sueldoObtenido;
         }
 
         public String solicitartipoCliente(String nombre, String apellido) {
