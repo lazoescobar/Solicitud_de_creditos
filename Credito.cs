@@ -71,7 +71,7 @@ namespace Solicitud_de_creditos
 
         }
 
-        public String colocarSeparadorDeMiles(int monto) {
+        private String colocarSeparadorDeMiles(int monto) {
 
             String saldoSinFormato = monto.ToString();
             String saldoEnFormatoChileno = "";
@@ -105,7 +105,7 @@ namespace Solicitud_de_creditos
         }
 
 
-        public String ComprobarQueSaldoNoEmpiezeConPunto(int monto) {
+        private String ComprobarQueSaldoNoEmpiezeConPunto(int monto) {
 
             String saldoFormatoChileno = this.colocarSeparadorDeMiles(monto);
 
