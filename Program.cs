@@ -10,7 +10,7 @@ namespace Solicitud_de_creditos
     {
         static void Main(string[] args) {
 
-            Credito[] solicitudCreditos = new Credito[3];
+            Credito[] solicitudCreditos = new Credito[1];
 
             Menu men = new Menu();
 

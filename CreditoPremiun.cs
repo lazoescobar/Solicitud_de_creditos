@@ -9,7 +9,7 @@ namespace Solicitud_de_creditos
     class CreditoPremiun : Credito {
 
         private ClientePremiun cliePrem;
-        private readonly int TazaInteres = 5; // hace referencia a % 
+        private readonly int TazaInteres = 6; // hace referencia a % 
 
         public CreditoPremiun(ClientePremiun clientePremiun, int cuotas, int monto) : base(cuotas, monto) {
 
